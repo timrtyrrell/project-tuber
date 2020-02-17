@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -131,13 +131,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-GOOGLE_OAUTH2_CLIENT_SECRETS_JSON = 'client_secrets.json'
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
@@ -146,3 +146,5 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1082334821960-lftp219abmnac60jdu1qer3l7vbsmcda.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '54kP_jvEZcy1BJXV6BVQTy8a'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'hd': 'virginia.edu'}
+
+django_heroku.settings(locals())
