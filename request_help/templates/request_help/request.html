@@ -1,1 +1,21 @@
-<h1>Request a Tutor</h1>
+{% extends "request_help/base.html" %} {% block content%}
+
+<form action="{% url 'request_help' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="class_name">What class do you need help with?</label>
+    <input type="text" name="class_name" id="class_name" />
+  </div>
+  <div class="form-group">
+    <label for="topic_text">What topic do you need help with?</label>
+    <textarea
+      class="form-control"
+      id="topic_text"
+      name="topic_text"
+      rows="3"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock content%}
