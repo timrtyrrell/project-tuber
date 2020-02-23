@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 from .models import HelpRequest
 
@@ -8,6 +8,10 @@ from .models import HelpRequest
 def request_help(request):
     if request.method == 'GET': 
         return render(request, 'request_help/request.html', {})
-    elif request.method == 'POST':
+    if request.method == 'POST':
         help_request = HelpRequest.objects.create(class_name=request.POST['class_name'], topic_text=request.POST['topic_text'])
-    return HttpResponseRedirect(reverse('request_help:request'))
+    return HttpResponseRedirect(reverse('sending_help'))
+
+# Help request received
+def request_received(request):
+    return render(request, 'request_help/sendinghelp.html')
