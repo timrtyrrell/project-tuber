@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'social_django',
     'tuber',
     'loginGoogle',
+    'request_help'
 ]
 
 MIDDLEWARE = [
