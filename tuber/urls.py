@@ -20,6 +20,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from loginGoogle import views as core_views
+from register import views as register_views
 
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
@@ -27,4 +28,5 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^admin/', admin.site.urls),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+    path('register/', register_views.register, name="register"),
 ]
