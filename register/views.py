@@ -13,10 +13,29 @@ def register(request):
                 profile.user = request.user
                 profile.save()
 
-                messages.success(request, f'Registered phone number successfully!')
+                name = profile.name
+                messages.success(request, f'Registered {name} successfully!')
                 return redirect('home')
         else:
             form = PhoneForm()
         return render(request, 'register/reg_form.html', {'form': form})
 
 
+def editprofile(request):
+    if not hasattr(request.user, 'userprofile'):
+        return redirect('register')
+    else:
+        profile = request.user.userprofile
+
+        if request.method == 'POST':
+            form = PhoneForm(request.POST)
+            if form.is_valid:
+                data = request.POST.copy()
+                profile.name = data.get('name')
+                profile.phone = data.get('phone')
+                profile.save()
+                messages.success(request, f'Edited profile successfully!')       
+
+        # profile = request.user.userprofile
+        form = PhoneForm({'name':profile.name, 'phone':profile.phone})
+        return render(request, 'register/editprofile.html', {'form': form, 'profile':profile})
