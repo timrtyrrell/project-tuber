@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'loginGoogle',
     'request_help',
     'register.apps.RegisterConfig',
+    'tutorStatus'
 ]
 
 MIDDLEWARE = [

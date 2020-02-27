@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^request/', include('request_help.urls')),
+    url(r'^tutorStatus/', include('tutorStatus.urls')),
     path('register/', register_views.register, name="register"),
     path('editprofile/', register_views.editprofile, name='editprofile'),
 ]
