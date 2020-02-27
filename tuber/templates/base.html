@@ -42,31 +42,24 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'editprofile' %}"
                 >Edit Profile</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                >Disabled</a
               >
             </li>
           </ul>
           <span class="navbar-text">
             {% if user.is_authenticated %} You are signed in as
-            <strong>{{ user.username }}</strong>
+            <strong>{{ user.username }}.</strong>
             {% else %}
             <a href="{% url 'login' %}">login</a>
             / {% endif %}
           </span>
         </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+        </ul>
       </nav>
     </header>
     <main>
