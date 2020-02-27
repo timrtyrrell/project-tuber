@@ -1,3 +1,15 @@
-<h1>Hello</h1>
+{% extends 'base.html' %}
 
-{{geocode_result}}
+{% block content %}
+  <h2>Homepage</h2>
+  <p>Hello {{ user.username }}!</p>
+  <p> Your location {{end}}</p>
+  <p>Driver's location {{start}}</p>
+  Your driver is {{ distance.text }} away and will arrive in {{ duration.text }}.
+
+  <p>testing</p>
+    {{instructions}}
+
+    <input type="text" class="form-control" name="addres_input" id="id_text_body" placeholder="Insert your address">
+    <input type="submit" value="Submit">
+{% endblock %}

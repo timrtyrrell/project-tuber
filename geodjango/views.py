@@ -8,14 +8,36 @@ from tuber.settings import GOOGLE_MAPS_API_KEY
 
 def index(request):
     gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
-    geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
-    reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
+    clark_hall = '291 McCormick Rd, Charlottesville, VA 22903'
+    alderman_library = '160 McCormick Rd, Charlottesville, VA 22904'
+
+
     now = datetime.now()
+    tutor_address = str(request.POST.get('address_input', False))
+    directions_result = ''
+    if tutor_address != '':
+        directions_result = gmaps.directions(tutor_address,
+                                        alderman_library,
+                                        mode="walking",
+                                        departure_time=now)
     '''
-    directions_result = gmaps.directions("Sydney Town Hall",
-                                     "Parramatta, NSW",
-                                     mode="transit",
+    directions_result = gmaps.directions(clark_hall,
+                                     alderman_library,
+                                     mode="walking",
                                      departure_time=now)
     '''
-    print(reverse_geocode_result)
-    return render(request, 'geodjango/index.html')
+
+    walking = directions_result[0]['legs']
+    directions_distance = walking[0]['distance']
+    print(directions_result[0])
+    directions_duration = walking[0]['duration']
+    test_instruct = walking[0]['steps'][0]['html_instructions']
+
+
+    context = {
+        'start' : clark_hall,
+        'end' : alderman_library,
+        'distance' : directions_distance,
+        'duration' : directions_duration,
+    }
+    return render(request, 'geodjango/index.html', context)
