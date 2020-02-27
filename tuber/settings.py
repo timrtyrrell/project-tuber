@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'tuber',
     'loginGoogle',
     'geodjango'
+    'request_help',
+    'register.apps.RegisterConfig',
 ]
 
 MIDDLEWARE = [
@@ -143,7 +145,7 @@ USE_TZ = True
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'register'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1082334821960-lftp219abmnac60jdu1qer3l7vbsmcda.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '54kP_jvEZcy1BJXV6BVQTy8a'

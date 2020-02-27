@@ -21,6 +21,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from loginGoogle import views as core_views
 from geodjango import views as geo_views
+from register import views as register_views
 
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
@@ -29,4 +30,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^locations/', include('geodjango.urls'))
+    url(r'^request/', include('request_help.urls')),
+    path('register/', register_views.register, name="register"),
+    path('editprofile/', register_views.editprofile, name='editprofile'),
 ]
