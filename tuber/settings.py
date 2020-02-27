@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'social_django',
     'tuber',
     'loginGoogle',
-    'request_help'
+    'request_help',
     'register.apps.RegisterConfig',
 ]
 

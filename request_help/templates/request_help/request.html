@@ -1,5 +1,8 @@
-{% extends "request_help/base.html" %} {% block content%}
+{% extends "base.html" %} {% block content%}
 
+<div class="container-fluid"></div>
+<br/>
+<h3>Request a Tutor</h3>
 <form action="{% url 'request_help' %}" method="post">
   {% csrf_token %}
   <div class="form-group">
@@ -17,5 +20,6 @@
   </div>
   <button type="submit" class="btn btn-primary">Request Help</button>
 </form>
+</div>
 
 {% endblock content%}
