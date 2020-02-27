@@ -63,19 +63,21 @@
       </nav>
     </header>
     <main>
-      {% for message in messages %}
-      <p
-        style="color: {% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% endif %}"
-      >
-        {{ message }}
-      </p>
-      {% endfor %} {% block content %} {% endblock %}
+      <div class="container-fluid">
+        <h1>{% for message in messages %}</h1>
+        <p
+          style="color: {% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% endif %}"
+        >
+          {{ message }}
+        </p>
+        {% endfor %} {% block content %} {% endblock %}
+      </div>
     </main>
     <footer>
       <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">
-        © 2020 Copyright: Tuber
-      </div>
+      <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">© 2020 Copyright: Tuber</a>
+      </nav>
       <!-- Copyright -->
     </footer>
   </body>
