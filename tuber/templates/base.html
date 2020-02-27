@@ -64,7 +64,7 @@
     </header>
     <main>
       <div class="container-fluid">
-        <h1>{% for message in messages %}</h1>
+        {% for message in messages %}
         <p
           style="color: {% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% endif %}"
         >
