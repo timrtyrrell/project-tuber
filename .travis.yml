@@ -1,0 +1,15 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -r requirements-travis.txt
+script:
+- python manage.py test
+deploy:
+  provider: heroku
+  api_key:
+    secure: ouOPrfsp+qIzs8MKKOeLvijCx3RgJwXnFxpHUk0m0jJl8OE8FZQjiAQ/u5doynRo6fLVKGkGZeKtKeVJJ2tEihnWGtVrWEBvuJqs53ntjuHdEPp5xSDyz/WeK9y7M0ZsMHS96E6Gegv27pIeeaBAX/RldBbcf2NQCkIOqdD29q8ve+8WBn5sQwmsoqrAQJjL2xY+hG6kMjweyrUYGtb6jZmgYAkr6j32jQaHz+K9Nm4J9kA8CtSoqIRsTJ1gwFk3afF6b/tp/mAfcl5u1vBhSabVVPDxcKldwq1f8PIIAB4e3TjUDx6Ewu9FFFnpuLPttZyQjmC2x1nRNqgfg5JP05kow8BOPXNEc7TwV4S0cVqOnl5fHp1lO71qXAiqkSe8CWlZrRzmwxnhFpGvLpzMXGzUKtLxu5S2JbWu7wFZJr3c582ABWnFyGwfT78rhfZDzlne/lwTFlQFO5dAPLfUCsMlC8YEV4qyVu5hkoGGshF5kFb1LdDqWvA5A9eF9loovI9i0QzqpJ8l/n77lNPuGAIczXImItxDWbBOue29tDHlPHqzwbAlWmzVeD2GECCbRqXldFB1kL2ryucdfd8dr3tDGnEnFi0fhSL0crxwoBJSYg12xO/9csuF7rdLym24/ecOlLJpqs8hHywsS5qM7oTDA0ebXs9ed7BdDpgo1RM=
+  app: project-102-tuber
+  on:
+    repo: uva-cs3240-s20/project-102-tuber
+    branch: master
