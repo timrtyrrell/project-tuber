@@ -3,7 +3,20 @@
 <div class="container-fluid"></div>
 <br/>
 <h3>Request a Tutor</h3>
-<form action="{% url 'request_help' %}" method="post">
+
+<form action="" method="post">
+  {% csrf_token %} 
+
+  <div class="form-group">
+    <label for="class_name">What class do you need help with?</label>
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Request Help</button>
+  </div>
+</form>
+
+
+<!-- <form action="{% url 'request_help' %}" method="post">
   {% csrf_token %}
   <div class="form-group">
     <label for="class_name">What class do you need help with?</label>
@@ -26,7 +39,7 @@
 </div>
 
   <button type="submit" class="btn btn-primary">Request Help</button>
-</form>
+</form> -->
 </div>
 
 {% endblock content%}
