@@ -1,7 +1,7 @@
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm
 from .models import HelpRequest
 
 class HelpRequestForm(ModelForm):
     class Meta:
         model = HelpRequest
-        fields = ['class_name', 'topic_text', 'location']
+        fields = ['class_name', 'topic', 'location']
