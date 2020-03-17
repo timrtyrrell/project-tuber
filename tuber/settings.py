@@ -143,12 +143,12 @@ USE_TZ = True
 #)
 
 LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGOUT_URL = 'login'
 LOGIN_REDIRECT_URL = 'register'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1082334821960-lftp219abmnac60jdu1qer3l7vbsmcda.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '54kP_jvEZcy1BJXV6BVQTy8a'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'hd': 'virginia.edu'}
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'hd': 'virginia.edu','approval_prompt': 'force'}
 
 django_heroku.settings(locals())
