@@ -1,18 +1,18 @@
 {% extends "base.html" %} {% block content%}
-
-<div class="container-fluid"></div>
-<br/>
-<h3>Start a tutoring session:</h3> </br>
-<h1>Current status: {{ user.status }} </h1>
+</br>
+<h3>Current status: {{ current_status }} </h3>
 <form action="{% url 'tutor_status' %}" method="post">
   {% csrf_token %}
   <div class="form-group">
-    <label for="class_name">Are you available to tutor?</label> </br>
-    <input type="radio" value="Yes" name="class_name"> Yes
-    <input type="radio" value="No" name="class_name"> No
-  </div>
-  <button type="submit" class="btn btn-primary">Change your status</button>
+  <label for="class_name">Are you available to tutor?</label> </br>
+  {{ form.status }}
+  <label for="class_name">If so, where would you like to tutor?</label> </br></div>
+  {{ form.location }} </br>
+  <input type="submit" value="Change your status">
 </form>
-</div>
 
 {% endblock content%}
+
+
+
+

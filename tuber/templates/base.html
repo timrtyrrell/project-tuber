@@ -52,6 +52,11 @@
                 >Request Tutor</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'tutor_status' %}"
+                >Start Tutoring</a
+              >
+            </li>
           </ul>
           <span class="navbar-text">
             {% if user.is_authenticated %} You are signed in as
