@@ -3,23 +3,34 @@
 <div class="container-fluid"></div>
 <br/>
 <h3>Request a Tutor</h3>
-<form action="{% url 'request_help' %}" method="post">
-  {% csrf_token %}
+
+<form action="" method="post">
+  {% csrf_token %} 
   <div class="form-group">
     <label for="class_name">What class do you need help with?</label>
-    <input type="text" name="class_name" id="class_name" />
+    {{ form.class_name }}
   </div>
   <div class="form-group">
     <label for="topic_text">What topic do you need help with?</label>
-    <textarea
-      class="form-control"
-      id="topic_text"
-      name="topic_text"
-      rows="3"
-    ></textarea>
+    {{ form.topic}}
+  </div>
+  <!-- <div class="form-group" role="group">
+    <label for="location">Where do you want to meet your tutor?</label>
+    <select class="form-control" id="location_id">
+      {{form.location.0}}
+      {{form.location.1}}
+      {{form.location.2}}
+      {{form.location.3}}
+      {{form.location.4}}
+    </select>
+  </div> -->
+  <div class="form-group" role="group" aria-label="Basic example">
+    <label for="location">Where do you want to meet your tutor?</label>
+    {{ form.location}}
   </div>
   <button type="submit" class="btn btn-primary">Request Help</button>
 </form>
+
 </div>
 
 {% endblock content%}
