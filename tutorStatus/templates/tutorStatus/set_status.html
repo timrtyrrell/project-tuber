@@ -3,6 +3,7 @@
 <div class="container-fluid"></div>
 <br/>
 <h3>Start a tutoring session:</h3> </br>
+<h1>Current status: {{ user.status }} </h1>
 <form action="{% url 'tutor_status' %}" method="post">
   {% csrf_token %}
   <div class="form-group">
