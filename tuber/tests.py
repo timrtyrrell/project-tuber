@@ -18,4 +18,4 @@ class helpRequestTests(TestCase):
         self.assertEqual(current_request.topic, "I need help")
     def test_isClassName(self):
         current_request = HelpRequest(class_name = "CS3240", topic = "I need help", location = "Clem Library")
-        self.assertEqual(current_request.location, "CS3240")
+        self.assertEqual(current_request.class_name, "CS3240")
