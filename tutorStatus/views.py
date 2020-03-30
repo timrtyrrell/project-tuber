@@ -16,6 +16,7 @@ def set_status(request):
         return redirect('register')
     else:
         profile = request.user.userprofile
+    current_status = ""
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -27,14 +28,17 @@ def set_status(request):
             # redirect to a new URL:
             status = form.cleaned_data['status']
             location = form.cleaned_data['location']
-
+            status_string = "yo"
             if status == "Yes":
                 status = True
+                status_string = "Available"
             else:
                 status = False
+                status_string = "Not available"
 
             profile.status = status
             profile.tutor_location = location
+            profile.status_string = status_string
             
             profile.save()
             messages.success(request, f'Status updated!')
@@ -42,11 +46,6 @@ def set_status(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = StatusForm()
-
-    if profile.status == "False":
-        current_status = "Not available"
-    else:
-        current_status = "Available"
+        form = StatusForm() 
     
-    return render(request, 'tutorStatus/set_status.html', {'form': form, 'current_status': current_status})
+    return render(request, 'tutorStatus/set_status.html', {'form': form, 'current_status': profile.status_string})
