@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^request/', include('request_help.urls')),
     path('register/', register_views.register, name="register"),
     path('editprofile/', register_views.editprofile, name='editprofile'),
+    path('tutorrequests/', include('tutorrequests.urls')),
 ]
