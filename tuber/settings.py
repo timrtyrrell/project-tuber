@@ -152,4 +152,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '54kP_jvEZcy1BJXV6BVQTy8a'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'hd': 'virginia.edu','approval_prompt': 'force'}
 
-django_heroku.settings(locals())
+django_heroku.settings(locals(), test_runner=False)
