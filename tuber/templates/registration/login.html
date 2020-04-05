@@ -135,47 +135,7 @@ header,
                         <h4 class="my-4 font-weight-bold">Convenience</h4>
                         <p class="grey-text">Forget walking around to get help. Tuber provides tutors that will meet you whenever, wherever.</p>
                     </div>
-                    <!--Grid column-->
-
                 </div>
-                <!--Grid row-->
-
             </section>
-            <!--Section: Best Features-->
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-    <script>
-        // Regular map
-        function regular_map() {
-            var var_location = new google.maps.LatLng(40.725118, -73.997699);
-
-            var var_mapoptions = {
-                center: var_location,
-                zoom: 14
-            };
-
-            var var_map = new google.maps.Map(document.getElementById("map-container"),
-                var_mapoptions);
-
-            var var_marker = new google.maps.Marker({
-                position: var_location,
-                map: var_map,
-                title: "New York"
-            });
-        }
-
-        // Initialize maps
-        google.maps.event.addDomListener(window, 'load', regular_map);
-
-// Carousel options
-
-$('.carousel').carousel({
-            interval: 3000,
-        })
-    </script>
 </body>
 {% endblock %}

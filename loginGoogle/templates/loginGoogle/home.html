@@ -1,6 +1,93 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-  <h2>Homepage</h2>
-  <p>Hello {{ user.username }}!</p>
+<!-- Main navigation -->
+<header>
+  <!-- Full Page Intro -->
+  <div class="view  jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('https://images.squarespace-cdn.com/content/v1/539f41a8e4b03f568ef51800/1483385680686-XRU91LS5URW2NMKOXU0N/ke17ZwdGBToddI8pDm48kDHPSfPanjkWqhH6pl6g5ph7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5dNb1QJw9casjKdtTg1_-y4jz4ptJBmI9gQmbjSQnNGng/DJI_0243.jpg?format=2500w'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-purple-slight d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+          <!--Grid column-->
+          <div class="col-md-12 text-center">
+            <h1 class="display-4 font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInUp" style="color: white">Tuber</h1>
+            <h5 class="pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 wow fadeInUp" data-wow-delay="0.2s" style="color: white">Explore your potential</h5>
+            <div class="wow fadeInUp" data-wow-delay="0.4s">
+              <a class="btn btn-outline-light" style="color:white;" href="{% url 'request_help' %}"> Request Help </a>
+              <a class="btn btn-outline-light" style="color:white;" href="{% url 'tutor_status' %}"> Start Tutoring </a>
+            </div>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+  <!-- Full Page Intro -->
+</header>
+<!-- Main navigation -->
+
+<body>
+<!--Main layout-->
+<main class="mt-5">
+    <div class="container">
+
+        <!--Section: Best Features-->
+        <section id="best-features" class="text-center">
+
+            <!-- Heading -->
+            <h2 class="mb-5 font-weight-bold">Our Service</h2>
+
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center mb-4">
+
+                <!--Grid column-->
+                <div class="col-md-8">
+
+                    <!-- Description -->
+                    <p class="grey-text">See how you can excel with peer to peer tutoring.</p>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-4 mb-5">
+                    <i class="fa fa-book fa-4x orange-text"></i>
+                    <h4 class="my-4 font-weight-bold">Experience</h4>
+                    <p class="grey-text">With tutor screening, our team ensures that only the best of the best will teach you.</p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-1">
+                    <i class="fa fa-heart fa-4x orange-text"></i>
+                    <h4 class="my-4 font-weight-bold">Happiness</h4>
+                    <p class="grey-text">Over 100% of our users report improvement in academic performance after starting with Tuber.</p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-1">
+                    <i class="fa fa-bicycle fa-4x orange-text"></i>
+                    <h4 class="my-4 font-weight-bold">Convenience</h4>
+                    <p class="grey-text">Forget walking around to get help. Tuber provides tutors that will meet you whenever, wherever.</p>
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </section>
+        <!--Section: Best Features-->
+</script>
+</body>
 {% endblock %}
