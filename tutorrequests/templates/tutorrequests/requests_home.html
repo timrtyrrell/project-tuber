@@ -4,15 +4,20 @@
   {% for request in requests %}
   <li class="list-group-item">
     <article class="media content-section">
-      <div class="media-body">
-        <h5 class="article-title">class: {{ request.class_name }}</h5>
-        <h6 class="text-muted">topic: {{ request.topic }}</h6>
-        <h6 class="text-muted">location: {{ request.location }}</h6>
-        <button type="submit" class="btn btn-outline-success">
-          Contact Student
-        </button>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">class: {{ request.class_name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            location: {{ request.location }}
+          </h6>
+          <p class="card-text">
+            topic: {{ request.topic }}
+          </p>
+          <button type="submit" class="btn btn-outline-success">
+            Contact Student
+          </button>
+        </div>
       </div>
-    </article>
   </li>
   {% endfor %}
 </ul>
