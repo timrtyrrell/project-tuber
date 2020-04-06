@@ -1,50 +1,32 @@
 {% extends 'base.html' %} {% block content %}
 
 <ul class="list-group list-group-flush container">
-  <h4 class="pt-2">Current Requests:</h4>
+  <h4 class="pt-2" style="text-align: center">Current Requests:</h4>
   {% for request in requests %}
 
-  <div class="row row-cols-1 row-cols-md-2">
-    <div class="col mb-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col mb-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <li class="list-group-item">
+  
     <article class="media content-section">
-      <div class="card-deck">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ request.class_name }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-            {{ request.location }}
-            </h6>
-            <p class="card-text">
-              {{ request.topic }}
-            </p>
-            <button type="submit" class="btn btn-outline-success">
-              Contact Student
-            </button>
+        <div class="row row-cols-1 row-cols-md-2">
+          <li class="list-group-item">
+          <div class="col mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ request.class_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  {{ request.location }}
+                  </h6>
+                <p class="card-text">{{ request.topic }}</p>
+                <button type="submit" class="btn btn-outline-success">
+                  Contact Student
+                </button>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Posted 3 mins ago</small>
+              </div>
+            </div>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
+        </li>
         </div>
-      </div>
-  </li>
   {% endfor %}
 </ul>
 {% endblock %}
