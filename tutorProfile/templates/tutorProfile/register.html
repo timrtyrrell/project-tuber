@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title%} Tutor Profile {% endblock %}
+
+{% block content%}
+Tutor Profile
+<form method="post" action="/register/">
+  {% csrf_token %}
+  {{form}}
+<button type="submit", name="save">Submit</button>
+</form>
+{% endblock %}
