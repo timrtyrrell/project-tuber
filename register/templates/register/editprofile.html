@@ -1,17 +1,23 @@
 {% extends 'base.html' %}{% block content %}
 
-<div class="row d-flex justify-content-center text-center">
-  <form action="{% url 'editprofile' %}" method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-      <legend class="border-bottom mb-4">User: {{ profile.user }}</legend>
-      {{ form.as_p }}
-    </fieldset>
-    <div class="form-group">
-      <button class="btn btn-outline-success" type="submit">
-        Edit Profile
-      </button>
-    </div>
-  </form>
-</div>
+<main class="mt-5">
+  <div class="card px-3 py-3 mb-3 my-3" style="width: 60%; margin: auto auto;">
+    <form action="{% url 'editprofile' %}" method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+          Edit Your Profile: {{ profile.user }}
+        </legend>
+        {{ form.as_p }}
+      </fieldset>
+
+      <div class="form-group">
+        <button class="btn btn-outline-success" type="submit">
+          Edit Profile
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
 {% endblock %}
