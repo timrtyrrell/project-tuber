@@ -21,8 +21,8 @@ class HelpRequest(models.Model):
     class_name = models.CharField(max_length=20)
     topic = models.CharField(max_length=200)
     location = models.CharField(max_length=60, choices=LOCATIONS, default='green')
-    time = models.IntegerField(choices=TIMES, default=5)
-    day = models.DateField(default = timezone.now)
+    time = models.IntegerField(max_length = 100, choices=TIMES, default=5)
+    day = models.DateField(max_length=100,default = timezone.now)
     # need to attach a user here for contact information
 
     def __str__(self):
