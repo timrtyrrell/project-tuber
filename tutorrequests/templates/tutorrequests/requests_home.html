@@ -8,20 +8,17 @@
     <article class="media content-section">
         <div class="row row-cols-1 row-cols-md-2">
           <li class="list-group-item">
-          <div class="col mb-4">
-            <div class="card">
+          <div>
+            <div class="card" style="width: 16rem;">
               <div class="card-body">
                 <h5 class="card-title">{{ request.class_name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">
-                  {{ request.location }}
-                  </h6>
+                {{ request.location }}
+                </h6>
                 <p class="card-text">{{ request.topic }}</p>
                 <button type="submit" class="btn btn-outline-success">
                   Contact Student
                 </button>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Posted 3 mins ago</small>
               </div>
             </div>
           </div>
