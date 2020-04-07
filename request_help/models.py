@@ -1,18 +1,28 @@
 from django.db import models
+from django.utils import timezone
 
 LOCATIONS = (
-    ('clem','Clemons Library'),
-    ('aldy', 'Alderman Library'),
-    ('clark','Clark Library'),
-    ('music','Music Library'),
-    ('rice','Rice Hall'),
+    ('Clemons Library','Clemons Library'),
+    ('Alderman Library', 'Alderman Library'),
+    ('Clark Library','Clark Library'),
+    ('Music Library','Music Library'),
+    ('Rice Hall','Rice Hall'),
 )
 
+TIMES = (
+    (5,'5 Minutes'),
+    (10, '10 Minutes'),
+    (15,'15 Minutes'),
+    (30,'30 Minutes'),
+    (60,'1 Hour'),
+)
 
 class HelpRequest(models.Model):
     class_name = models.CharField(max_length=20)
     topic = models.CharField(max_length=200)
-    location = models.CharField(max_length=6, choices=LOCATIONS, default='green')
+    location = models.CharField(max_length=60, choices=LOCATIONS, default='green')
+    time = models.IntegerField(max_length = 100, choices=TIMES, default=5)
+    day = models.DateField(max_length=100,default = timezone.now)
     # need to attach a user here for contact information
 
     def __str__(self):
