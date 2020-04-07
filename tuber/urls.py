@@ -34,5 +34,5 @@ urlpatterns = [
     path('register/', register_views.register, name="register"),
     path('editprofile/', register_views.editprofile, name='editprofile'),
     path('tutorrequests/', include('tutorrequests.urls')),
-    path('tutorProfile/', tutorProfile_views.register, name="tutorProfile"),
+    path('tutorProfile/', include('tutorProfile.urls')),
 ]

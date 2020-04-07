@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name="requests-home"),
+    path('', views.index, name='tutor_profile'),
+    path('add', views.addClass, name='add')
 ]

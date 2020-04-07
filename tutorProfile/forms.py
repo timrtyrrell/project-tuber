@@ -1,7 +1,9 @@
 from django import forms
 
-class CreateNewList(forms.Form):
-    major = forms.CharField(label="Major",max_length=100)
-    course = forms.CharField(label="Course Name",max_length=200)
-    check = forms.BooleanField(label="Taken?",required=False)
-                            
+class TutorProfileForm(forms.Form): 
+    class_name = forms.CharField(max_length = 40, 
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'placeholder': 'Enter class name', 'aria-label': 'Class', 'aria-describedby' : 'add-btn'
+}
+        )
+    )
