@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'tutorStatus',
     'tutorrequests.apps.TutorrequestsConfig',
-    'tutorProfile',
 ]
 
 MIDDLEWARE = [
