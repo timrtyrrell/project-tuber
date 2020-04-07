@@ -33,6 +33,9 @@ urlpatterns = [
     url(r'^tutorStatus/', include('tutorStatus.urls')),
     path('register/', register_views.register, name="register"),
     path('editprofile/', register_views.editprofile, name='editprofile'),
+    path('becometutor/', include('register.urls')),
+    # path('becometutor/', register_views.becometutor, name='become_tutor'),
+    # path('add', register_views.addClass, name='add'),
     path('tutorrequests/', include('tutorrequests.urls')),
-    path('tutorProfile/', include('tutorProfile.urls')),
+    # path('tutorProfile/', include('tutorProfile.urls')),
 ]
