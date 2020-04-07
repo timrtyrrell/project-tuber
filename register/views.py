@@ -55,7 +55,9 @@ def addClass(request):
     form = TutorProfileForm(request.POST)
 
     if form.is_valid():
-        new_class = TutorProfile(class_name = request.POST['class_name'])
-        new_class.save()
+        class_name = TutorProfile(class_name = request.POST['class_name'])
+        user = request.user.userprofile
+        AddClass = TutorProfile(class_name=class_name, user=user)
+        AddClass.save()
 
-    return redirect('register/become_tutor')
+    return redirect('become_tutor')
