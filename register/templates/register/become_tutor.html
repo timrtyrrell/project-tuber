@@ -11,7 +11,8 @@
     <form action="{% url 'add' %}" method="POST" role="form">
       {% csrf_token %}
       <div class="form-group">
-        <div class="input-group">
+        What classes could you provide tutoring in?
+        <div class="input-group" style="width: 30%">
           {{ form.class_name }}
           <span class="input-group-btn">
             <button type="submit" class="btn btn-outline-success" id="add-btn">
@@ -22,14 +23,17 @@
       </div>
     </form>
 
-    <ul class="list-group t20">
-      Classes I Can Tutor: {% for profile in tutorProfile_list %}
-      <li class="list-group-item">
-        {{ profile.class_name }}
-      </li>
+    Classes you've selected:
+    <ul class="list-group" style="width: 40%">
+      {% for class in tutorProfile_list %}
+      {% if user.userprofile == class.user %}
+        <li class="list-group-item" style="border: 1px solid rgba(0,0,0,.125)">{{ class.class_name }}</li>
+      {% endif %}
       {% endfor %}
+
     </ul>
-  </div>
+
 </main>
+
 
 {% endblock %}
