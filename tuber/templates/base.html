@@ -32,7 +32,7 @@
     />
     <link
       rel="stylesheet"
-      href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
     />
   </head>
   <body>
@@ -81,9 +81,11 @@
                 >Help Requests</a
               >
             </li>
-	    <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'tutorProfile' %}"
-                >Become A Tutor</a
+                >Become a Tutor</a
+              >
+            </li>
           </ul>
           <span class="navbar-text">
             {% if user.is_authenticated %} You are signed in as
