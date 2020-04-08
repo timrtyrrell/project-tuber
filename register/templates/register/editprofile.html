@@ -6,7 +6,7 @@
       {% csrf_token %}
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">
-          Edit Your Profile Here, {{ profile.user }}
+          Edit Your Profile: {{ profile.user }}
         </legend>
         {{ form.as_p }}
       </fieldset>
@@ -17,13 +17,6 @@
         </button>
       </div>
     </form>
-
-    <span
-      >Want to become a tutor?
-      <a href="{% url 'become_tutor' %}" style="color: success;"
-        >Register here!</a
-      ></span
-    >
   </div>
 </main>
 

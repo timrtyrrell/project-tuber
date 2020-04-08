@@ -9,12 +9,3 @@ class PhoneForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['name', 'phone']
-
-
-class TutorProfileForm(forms.Form): 
-    class_name = forms.CharField(max_length = 40, 
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Enter class name', 'aria-label': 'Class', 'aria-describedby' : 'add-btn'
-}
-        )
-    )

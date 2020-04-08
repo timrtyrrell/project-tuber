@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.views.decorators.http import require_POST
-
-from .models import TutorProfile
-from .forms import PhoneForm, TutorProfileForm
+from .forms import PhoneForm
 
 def register(request):
     if hasattr(request.user, 'userprofile'):
@@ -42,22 +39,3 @@ def editprofile(request):
         # profile = request.user.userprofile
         form = PhoneForm({'name':profile.name, 'phone':profile.phone})
         return render(request, 'register/editprofile.html', {'form': form, 'profile':profile})
-
-
-def becomeTutor(request):
-    tutorProfile_list = TutorProfile.objects.order_by('id')
-    form = TutorProfileForm()
-    context = {'tutorProfile_list' : tutorProfile_list, 'form': form}
-    return render(request, 'register/become_tutor.html', context)
-
-@require_POST
-def addClass(request): 
-    form = TutorProfileForm(request.POST)
-
-    if form.is_valid():
-        class_name = TutorProfile(class_name = request.POST['class_name'])
-        user = request.user.userprofile
-        AddClass = TutorProfile(class_name=class_name, user=user)
-        AddClass.save()
-
-    return redirect('become_tutor')
