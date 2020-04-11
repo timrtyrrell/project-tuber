@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <main class="mt-5">
-  <div class="content-section">
-    <form action="" method="POST">
+  <div class="card px-3 py-3 mb-3 my-3" style="width: 60%; margin: auto auto;">
+    <form action="{% url 'editprofile' %}" method="post">
       {% csrf_token %}
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">
@@ -17,4 +17,5 @@
     </form>
   </div>
 </main>
+
 {% endblock %}
