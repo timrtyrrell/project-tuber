@@ -1,18 +1,20 @@
 {% extends 'base.html' %} {% block content %}
-<div class="content-section">
-  <form action="" method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-      <legend class="border-bottom mb-4">
-        Please enter your name and phone number to validate your account!
-      </legend>
-      {{ form.as_p }}
-    </fieldset>
-    <div class="form-group">
-      <button class="btn btn-outline-success" type="submit">
-        Edit Profile
-      </button>
-    </div>
-  </form>
-</div>
+<main class="mt-5">
+  <div class="content-section">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+          Please enter your name and phone number to validate your account!
+        </legend>
+        {{ form.as_p }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-success" type="submit">
+          Edit Profile
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
 {% endblock %}
