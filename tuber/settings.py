@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'request_help',
     'register.apps.RegisterConfig',
     'tutorStatus',
-    'tutorrequests.apps.TutorrequestsConfig',
+    'tutorrequests',
     'tutorProfile',
 ]
 
@@ -143,7 +143,6 @@ STATIC_URL = '/staticfiles/'
 
 #STATICFILES_DIRS = (
 #    os.path.join(BASE_DIR, 'staticfiles'),
-#)
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'login'
@@ -153,5 +152,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1082334821960-lftp219abmnac60jdu1qer3l7vbsmcda.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '54kP_jvEZcy1BJXV6BVQTy8a'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'hd': 'virginia.edu','approval_prompt': 'force'}
+
+GOOGLE_MAPS_API_KEY = 'AIzaSyDJ3OMK3ABdQ76t7u0y6yB6XaL0XMTYXN4'
 
 django_heroku.settings(locals(), test_runner=False)
