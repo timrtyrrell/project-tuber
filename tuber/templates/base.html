@@ -32,7 +32,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
     />
   </head>
   <body>
@@ -46,16 +46,17 @@
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="navbarSupportedContent"
+          data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="{% url 'home' %}"
                 >Home<span class="sr-only">(current)</span>
               </a>
@@ -66,20 +67,23 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'tutor_status' %}"
-                >Start Tutoring</a
-              >
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'request_help' %}"
                 >Request Tutor</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'requests-home' %}"
-                >Help Requests</a
+              <a class="nav-link" href="{% url 'tutor_status' %}"
+                >Start Tutoring</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'requests-home' %}"
+                >List Requests</a
+              >
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="{% url 'tutorProfile' %}"
+                >Become A Tutor</a
           </ul>
           <span class="navbar-text">
             {% if user.is_authenticated %} You are signed in as

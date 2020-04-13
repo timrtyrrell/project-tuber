@@ -1,0 +1,4 @@
+from django import forms
+
+class CreateNewList(forms.form):
+    class = forms.CharField(label="Class",max_length200
