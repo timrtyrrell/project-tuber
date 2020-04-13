@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Tutor Requests</title>
-</head>
-<body>
-    <h2>You are viewing a request.</h2>
-</body>
-</html>
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <ul class="list-group list-group-flush">
+        <h4 class="pt-2">Request:</h4>
+        <li class="list-group-item">
+            <article class="media content-section">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">class: {{ request.class_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    location: {{ request.location }}
+                </h6>
+                <p class="card-text">
+                    topic: {{ request.topic }}
+                </p>
+                <br>
+                <br>
+                <br>
+                <p class="lead" style="font-size:3em">
+                    Hello {{ user.username }}!<br>
+                    <div style="font-weight:bold">Your location: </div>{{start}}<br> <br>
+                    <div style="font-weight:bold">Student's location: </div>{{end}}<br> <br>
+                    This tutor request is {{ distance.text }} away, which should take about {{ duration.text }} walking.                      
+                </p>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+{% endblock %}

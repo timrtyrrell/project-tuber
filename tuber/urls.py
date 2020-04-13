@@ -33,6 +33,6 @@ urlpatterns = [
     url(r'^tutorStatus/', include('tutorStatus.urls')),
     path('register/', register_views.register, name="register"),
     path('editprofile/', register_views.editprofile, name='editprofile'),
-    path('tutorrequests/', include('tutorrequests.urls')),
+    path('tutorrequests/', include('tutorrequests.urls'), name='tutorrequests'),
     path('tutorProfile/', tutorProfile_views.register, name="tutorProfile"),
 ]

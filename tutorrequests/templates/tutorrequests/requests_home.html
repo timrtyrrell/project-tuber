@@ -13,7 +13,7 @@
           <p class="card-text">
             topic: {{ request.topic }}
           </p>
-	  <a href="requests_detail.html">
+	  <a href="{% url 'requests-details' pk=request.pk %}">
             <button type="submit" class="btn btn-outline-success">
               Contact Student
             </button>
