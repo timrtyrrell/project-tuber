@@ -15,20 +15,26 @@ def home(request):
 
 def details(request, pk):
     req = HelpRequest.objects.get(pk=pk)
-    
+    other = request.user.userprofile.tutor_location
     loc = str(req.location)
-    print(loc)
+    print("this is the ", loc, other)
     locations = {
-        'clem': '164 McCormick Rd, Charlottesville, VA 22903',
+        'Clemons Library': '164 McCormick Rd, Charlottesville, VA 22903',
         'Clark Library': '291 McCormick Rd, Charlottesville, VA 22903',
         'Alderman Library': '160 McCormick Rd, Charlottesville, VA 22904',
         'Music Library': 'Cabell Dr L001, Charlottesville, VA 22904',
         'Rice Hall': '5 Engineer\'s Way, Charlottesville, VA 22903',
     }
-
+    locations2 = {
+        'clem': '164 McCormick Rd, Charlottesville, VA 22903',
+        'clark': '291 McCormick Rd, Charlottesville, VA 22903',
+        'aldy': '160 McCormick Rd, Charlottesville, VA 22904',
+        'music': 'Cabell Dr L001, Charlottesville, VA 22904',
+        'rice': '5 Engineer\'s Way, Charlottesville, VA 22903',
+    }
     gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
     student_location = locations.get(loc)
-    tutor_location = locations.get('Alderman Library')
+    tutor_location = locations2.get(other)
     now = datetime.now()
     print(student_location, tutor_location)
     directions_result = gmaps.directions(student_location, tutor_location, mode="walking", departure_time="now")
