@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from request_help.models import HelpRequest
-import googlemaps
+# import googlemaps
 from datetime import datetime
 
 from tuber.settings import GOOGLE_MAPS_API_KEY

@@ -1,5 +1,0 @@
-{% extends 'base.html' %} {% block content %}
-
-{% block title%} Tutor Profile {% endblock %}
-
-{% block content%} Tutor Profile {% endblock %}
