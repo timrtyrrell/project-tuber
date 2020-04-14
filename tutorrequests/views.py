@@ -35,10 +35,6 @@ def details(request, pk):
     directions_distance = walking[0]['distance']
     directions_duration = walking[0]['duration']
     
-
-
-    
-
     context = {
         'request': req,
         'start' : tutor_location,

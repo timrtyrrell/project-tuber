@@ -1,31 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 
 <ul class="list-group list-group-flush container">
-  <h4 class="pt-2" style="text-align: center">Current Requests:</h4>
+  <h4 class="pt-2" style="text-align: center;">Current Requests:</h4>
   {% for request in requests %}
+  <article class="media content-section">
+    <div class="row row-cols-1 row-cols-md-2">
+      <li class="list-group-item">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">class: {{ request.class_name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              location: {{ request.location }}
+            </h6>
+            <p class="card-text">topic: {{ request.topic }}</p>
+            <p class="card-text">{{ request.day }}</p>
+            <p class="card-text">${{ request.time }}</p>
 
-  
-    <article class="media content-section">
-        <div class="row row-cols-1 row-cols-md-2">
-          <li class="list-group-item">
-          <div>
-                  <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">class: {{ request.class_name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            location: {{ request.location }}
-          </h6>
-          <p class="card-text">topic: {{ request.topic }}</p>
-          <p class="card-text">{{ request.day }}</p>
-          <p class="card-text">${{ request.time }}</p>
-	  <a href="{% url 'requests-details' pk=request.pk %}">
-            <button type="submit" class="btn btn-outline-success">
-              Contact Student
-            </button>
-	  </a>
+            <a href="{% url 'requests-details' pk=request.pk %}">
+              <button type="submit" class="btn btn-outline-success">
+                Contact Student
+              </button>
+            </a>
           </div>
-        </li>
         </div>
+      </li>
+    </div>
+  </article>
   {% endfor %}
 </ul>
 {% endblock %}
