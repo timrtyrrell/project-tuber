@@ -6,7 +6,7 @@
     <article class="media content-section">
       <div class="row row-cols-1 row-cols-md-2">
         <li class="list-group-item">
-          <div class="card" style="width: 35rem;">
+          <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">class: {{ request.class_name }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">
@@ -21,10 +21,6 @@
 
               <div style="font-weight: bold;">Your location:</div>
               {{start}}<br />
-              {% if not_tutor %}
-              <span class="badge badge-light">*Because you have not elected to tutor, we specified your location as Alderman Library; edit this <a href="{% url 'tutor_status' %}">here</a></span>
-              {% endif %}
-              <br />
               <br />
               <div style="font-weight: bold;">Student's location:</div>
               {{end}}<br />
