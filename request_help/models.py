@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+import sys
+from register.models import UserProfile
 
 LOCATIONS = (
     ('Clemons Library','Clemons Library'),
@@ -24,6 +26,7 @@ class HelpRequest(models.Model):
     time = models.IntegerField(choices=TIMES, default=5)
     day = models.DateField(max_length=100,default = timezone.now)
     # need to attach a user here for contact information
+    user = UserProfile()
 
     def __str__(self):
         return self.topic

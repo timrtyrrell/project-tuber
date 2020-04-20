@@ -18,7 +18,7 @@
             </div>
             <div class="card-footer">
               <h5 class="card-title">Hello {{ user.username }}!</h5>
-
+              
               <div style="font-weight: bold;">Your location:</div>
               {{start}}<br />
               <br />
@@ -27,6 +27,13 @@
               <br />
               This tutor request is {{ distance.text }} away, which should take
               about {{ duration.text }} walking.
+              <br/>
+              <br/>
+              <div style="font-weight: bold;">Student's name:</div>
+              {{name}}<br />
+              <br/>
+              <div style="font-weight: bold;">Contact the student:</div>
+              {{phone}}<br />
             </div>
           </div>
         </li>

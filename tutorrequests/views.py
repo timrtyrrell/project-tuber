@@ -16,6 +16,8 @@ def home(request):
 def details(request, pk):
     req = HelpRequest.objects.get(pk=pk)
     other = request.user.userprofile.tutor_location
+    student_name = req.user.name
+    student_phone = req.user.phone
     loc = str(req.location)
     print("this is the ", loc, other)
     locations = {
@@ -36,7 +38,7 @@ def details(request, pk):
     student_location = locations.get(loc)
     tutor_location = locations2.get(other)
     now = datetime.now()
-    print(student_location, tutor_location)
+    #print(student_location, tutor_location)
     directions_result = gmaps.directions(student_location, tutor_location, mode="walking", departure_time="now")
     walking = directions_result[0]['legs']
     directions_distance = walking[0]['distance']
@@ -48,5 +50,7 @@ def details(request, pk):
         'end' : student_location,
         'distance' : directions_distance,
         'duration' : directions_duration,
+        'name' : student_name,
+        'phone' : student_phone
     }
     return render(request, 'tutorrequests/requests_detail.html', context)

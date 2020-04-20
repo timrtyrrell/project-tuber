@@ -6,6 +6,8 @@ from .models import HelpRequest
 from .forms import HelpRequestForm
 
 from django.views.generic.edit import CreateView
+from django.contrib.auth.models import User
+
 
 
 # Request Help
@@ -17,4 +19,6 @@ class HelpRequestView(CreateView):
 
 # Help request received
 def request_received(request):
+    HelpRequest.user = request.user.userprofile
+    print(HelpRequest.user.name)
     return render(request, 'request_help/sendinghelp.html')

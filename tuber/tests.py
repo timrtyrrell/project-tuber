@@ -1,6 +1,8 @@
 from django.test import TestCase
 from request_help.models import HelpRequest
 from register.models import UserProfile
+from tutorProfile.forms import CreateNewList
+from register.models import TutorProfile
 
 class BasicTests(TestCase):
     def test_isTrue(self):
@@ -31,6 +33,11 @@ class tutorStatusTests(TestCase):
     def test_isNewLocation(self):
         current_tutor = UserProfile(name = "Bobby", phone="123-434-3567", tutor_location = "Clem Library")
         self.assertEqual(current_tutor.tutor_location, "Clem Library")
+    def test_isChangedLocation(self):
+        current_tutor = UserProfile(name = "Bobby", phone="123-434-3567", tutor_location = "Clem Library")
+        current_tutor.tutor_location = "Clark Library"
+        self.assertEqual(current_tutor.tutor_location, "Clark Library")
+
 
 class registerTests(TestCase): 
     def test_isDefault(self):
@@ -42,3 +49,24 @@ class registerTests(TestCase):
     def test_isName(self):
         current_user = UserProfile(name = "Bobby", phone="123-434-3567")
         self.assertEqual(current_user.name, "Bobby")
+    def test_isChangedName(self):
+        current_user = UserProfile(name = "Bobby", phone="123-434-3567")
+        current_user.name = "Bob"
+        self.assertEqual(current_user.name, "Bob")
+
+class tutorProfile(TestCase):
+    def test_isEmpty(self):
+        new_tutor = TutorProfile()
+        self.assertEqual(new_tutor.class_name, "")
+    def test_isNewClass(self):
+        new_tutor = TutorProfile(class_name="CS 3240")
+        self.assertEqual(new_tutor.class_name, "CS 3240")
+    def test_isChangedClass(self):
+        new_tutor = TutorProfile(class_name="CS 3240")
+        new_tutor.class_name = ""
+        self.assertEqual(new_tutor.class_name, "")
+        
+
+
+    
+
