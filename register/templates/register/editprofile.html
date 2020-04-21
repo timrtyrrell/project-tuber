@@ -17,6 +17,15 @@
         </button>
       </div>
     </form>
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
     <span
       >Want to become a tutor?
       <a href="{% url 'become_tutor' %}" style="color: #28a745;"

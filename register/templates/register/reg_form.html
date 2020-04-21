@@ -12,10 +12,19 @@
 
       <div class="form-group">
         <button class="btn btn-outline-success" type="submit">
-          Edit Profile
+          Verify Account
         </button>
       </div>
     </form>
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </main>
 {% endblock %}
