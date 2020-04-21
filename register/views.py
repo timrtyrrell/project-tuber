@@ -37,9 +37,9 @@ def editprofile(request):
                 profile.name = data.get('name')
                 profile.phone = data.get('phone')
                 profile.save()
-                messages.success(request, f'Edited profile successfully!')       
-
-        # profile = request.user.userprofile
+                messages.success(request, f'Your profile was edited successfully!')       
+        print(messages)        
+        profile = request.user.userprofile
         form = PhoneForm({'name':profile.name, 'phone':profile.phone})
         return render(request, 'register/editprofile.html', {'form': form, 'profile':profile})
 
