@@ -12,28 +12,31 @@
       {% csrf_token %}
       <div class="form-group">
         What classes could you provide tutoring in?
-        <div class="input-group" style="width: 30%">
+        <div class="input-group d-flex"> 
           {{ form.class_name }}
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-outline-success" id="add-btn">
-              Add
-            </button>
-          </span>
+          <button type="submit" class="btn btn-outline-success" id="add-btn">
+            Add
+          </button>    
         </div>
       </div>
     </form>
 
     Classes you've selected:
-    <ul class="list-group" style="width: 40%">
+    <ul class="list-group">
       {% for class in tutorProfile_list %}
       {% if user.userprofile == class.user %}
-        <li class="list-group-item" style="border: 1px solid rgba(0,0,0,.125)">{{ class.class_name }}</li>
+        <form action="/delete/{{class.id}}" method="POST" role="form">
+          {% csrf_token %}
+          <li class="list-group-item" style="border: 1px solid rgba(0,0,0,.125)">
+          {{ class.class_name }}
+            <button type="submit" class="btn btn-outline-success" id="delete-btn" style="position: absolute; right: 0; margin-right:0">
+              Delete
+            </button>
+          </li>
+        </form>
       {% endif %}
       {% endfor %}
-
     </ul>
-
 </main>
-
 
 {% endblock %}

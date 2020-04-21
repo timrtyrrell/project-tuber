@@ -59,5 +59,9 @@ def addClass(request):
         user = request.user.userprofile
         AddClass = TutorProfile(class_name=class_name, user=user)
         AddClass.save()
+    return redirect('become_tutor')
 
+def deleteClass(request, id): 
+    item_to_delete = TutorProfile.objects.get(id=id)
+    item_to_delete.delete()
     return redirect('become_tutor')
