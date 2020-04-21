@@ -3,8 +3,10 @@ from .models import UserProfile
 
 
 class PhoneForm(forms.ModelForm):
-    name = forms.CharField(max_length=100)
-    phone = forms.CharField(max_length=10)
+    name = forms.CharField(max_length=100, widget= forms.TextInput
+                           (attrs={'placeholder':'Your Name'}))
+    phone = forms.CharField(max_length=10, widget= forms.TextInput
+                           (attrs={'placeholder':'XXXXXXXXXX'}))
     
     class Meta:
         model = UserProfile
