@@ -11,6 +11,13 @@ def home(request):
     }
     return render(request, 'tutorrequests/requests_home.html', context)
 
+def delete(request, pk):
+    HelpRequest.objects.filter(pk=pk).delete()
+    context = {
+        'requests': HelpRequest.objects.all()
+    }
+    return render(request, 'tutorrequests/requests_home.html', context)
+
 
 def details(request, pk):
     req = HelpRequest.objects.get(pk=pk)
