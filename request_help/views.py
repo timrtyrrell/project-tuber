@@ -16,9 +16,18 @@ class HelpRequestView(CreateView):
     form_class = HelpRequestForm
     template_name = 'request_help/request.html'
     success_url = 'received'
+    def post(self, request, **kwargs):
+        form = HelpRequestForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit = False)
+            post.name = request.user.userprofile.name
+            post.phone = request.user.userprofile.phone
+            print("names", post.name)
+            post.save()
+            return render(request, 'request_help/sendinghelp.html')
 
 # Help request received
 def request_received(request):
     HelpRequest.user = request.user.userprofile
-    print(HelpRequest.user.name)
+    #print(HelpRequest.user.name)
     return render(request, 'request_help/sendinghelp.html')

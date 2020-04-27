@@ -26,6 +26,8 @@ class HelpRequest(models.Model):
     time = models.IntegerField(choices=TIMES, default=5)
     day = models.DateField(max_length=100,default = timezone.now)
     # need to attach a user here for contact information
+    name = models.CharField(max_length=60, default='Not Real Name')
+    phone = models.CharField(max_length=60, default='XXXXXXXXXX')
     user = UserProfile()
 
     def __str__(self):
