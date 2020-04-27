@@ -4,6 +4,7 @@ from datetime import datetime
 import googlemaps
 from tuber.settings import GOOGLE_MAPS_API_KEY
 
+from register.models import UserProfile
 
 def home(request):
     context = {
@@ -21,7 +22,9 @@ def delete(request, pk):
 
 def details(request, pk):
     req = HelpRequest.objects.get(pk=pk)
-    other = request.user.userprofile.tutor_location
+    other = 'rice'
+    if (UserProfile.objects.filter(user=request.user).exists()):
+        other = request.user.userprofile.tutor_location
     student_name = req.user.name
     student_phone = req.user.phone
     loc = str(req.location)
