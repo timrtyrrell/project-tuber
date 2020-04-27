@@ -29,5 +29,4 @@ class HelpRequestView(CreateView):
 # Help request received
 def request_received(request):
     HelpRequest.user = request.user.userprofile
-    #print(HelpRequest.user.name)
     return render(request, 'request_help/sendinghelp.html')

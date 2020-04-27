@@ -5,55 +5,67 @@
       <fieldset>
         <legend class="border-bottom mb-4">Request a Tutor</legend>
 
-    <form action="" method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="class_name" class="col-form-label requiredField">
-          What class do you need help with? <span class="asteriskField">*</span>
-        </label>
-        <div>
-          {{ form.class_name }}
+      {% if user == None %}
+        <div class="container-fluid">
+        <p>Please register your account before you request help.</p>
+        <a
+          class="btn btn-outline-success"
+          style="color: #4caf50;"
+          href="{% url 'editprofile' %}"
+        >
+          Validate Account</a
+        >
         </div>
-      </div>
-      <div class="form-group">
-        <label for="topic_text" class="col-form-label requiredField">
-          What topic do you need help with? <span class="asteriskField">*</span>
-        </label>
-        <div>
-          {{ form.topic}}
+      {% else %}
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="class_name" class="col-form-label requiredField">
+            What class do you need help with? <span class="asteriskField">*</span>
+          </label>
+          <div>
+            {{ form.class_name }}
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="location" class="col-form-label requiredField">
-          Where do you want to meet your tutor? <span class="asteriskField">*</span>
-        </label>
-        <div>
-          {{ form.location}}
+        <div class="form-group">
+          <label for="topic_text" class="col-form-label requiredField">
+            What topic do you need help with? <span class="asteriskField">*</span>
+          </label>
+          <div>
+            {{ form.topic}}
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="time" class="col-form-label requiredField">
-          How long do you want to meet for? <span class="asteriskField">*</span>
-        </label>
-        <div>
-          {{ form.time }}
+        <div class="form-group">
+          <label for="location" class="col-form-label requiredField">
+            Where do you want to meet your tutor? <span class="asteriskField">*</span>
+          </label>
+          <div>
+            {{ form.location}}
+          </div>
         </div>
-      <div class="form-group">
-        <label for="time" class="col-form-label requiredField">
-          When would you like to meet? <span class="asteriskField">*</span>
-        </label>
-        <div>
-          {{ form.day }}
+        <div class="form-group">
+          <label for="time" class="col-form-label requiredField">
+            How long do you want to meet for? <span class="asteriskField">*</span>
+          </label>
+          <div>
+            {{ form.time }}
+          </div>
+        <div class="form-group">
+          <label for="time" class="col-form-label requiredField">
+            When would you like to meet? <span class="asteriskField">*</span>
+          </label>
+          <div>
+            {{ form.day }}
+          </div>
         </div>
-      </div>
-      <button type="submit" class="btn btn-outline-success">
-        Request Help
-      </button>
-    </form>
-      </fieldset>
-    </form>
-  </div>
-
+        <button type="submit" class="btn btn-outline-success">
+          Request Help
+        </button>
+      </form>
+        </fieldset>
+      </form>
+    </div>
+      {% endif %}
 </main>
 
 {% endblock content%}
