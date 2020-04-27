@@ -5,18 +5,7 @@
       <fieldset>
         <legend class="border-bottom mb-4">Request a Tutor</legend>
 
-      {% if user == None %}
-        <div class="container-fluid">
-        <p>Please register your account before you request help.</p>
-        <a
-          class="btn btn-outline-success"
-          style="color: #4caf50;"
-          href="{% url 'editprofile' %}"
-        >
-          Validate Account</a
-        >
-        </div>
-      {% else %}
+      {% if user.userprofile %}
       <form action="" method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -63,9 +52,15 @@
         </button>
       </form>
         </fieldset>
-      </form>
-    </div>
+      </form>      
+      {% else %}
+      <div class="container-fluid">
+        Please validate your account before requesting help.
+        <br/>
+        <a class="btn btn-outline-success" style="color:#28a745;" href="{% url 'editprofile' %}"> Validate Account </a>
+      </div>
       {% endif %}
+    </div>
 </main>
 
 {% endblock content%}
