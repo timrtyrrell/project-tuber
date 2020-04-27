@@ -43,6 +43,9 @@ def details(request, pk):
     gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
     student_location = locations.get(loc)
     tutor_location = locations2.get(other)
+    print(tutor_location)
+    if tutor_location == None:
+        tutor_location = locations2.get('rice')
     now = datetime.now()
     #print(student_location, tutor_location)
     directions_result = gmaps.directions(student_location, tutor_location, mode="walking", departure_time="now")
