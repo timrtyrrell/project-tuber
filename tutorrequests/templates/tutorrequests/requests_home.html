@@ -21,6 +21,11 @@
                 Contact Student
               </button>
             </a>
+            <a href="{% url 'delete' pk=request.pk %}">
+              <button type="submit" class="btn btn-outline-success">
+                Request Completed
+              </button>
+            </a>
           </div>
         </div>
       </li>
